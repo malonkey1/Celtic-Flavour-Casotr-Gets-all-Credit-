@@ -1,0 +1,9 @@
+﻿house_british_isles_bryneich = {
+	name = "dynn_Bryneich"
+	dynasty = 1029002
+}
+
+house_british_isles_guenet = {
+	name = "dynn_Guenet"
+	dynasty = 1029129
+}

@@ -1,0 +1,17 @@
+﻿house_british_isles_rheged = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_ordinary_chevron_5.dds"
+		color1 = "black"
+	}
+	colored_emblem = {
+		texture = "ce_falcon.dds"
+		color1 = "black"
+		color2 = "black"
+		instance = { position = { 0.17 0.25 } scale = { 0.45 0.45 }  }
+		instance = { position = { 0.83 0.25 } scale = { 0.45 0.45 }  }
+		instance = { position = { 0.50 0.83 } scale = { 0.45 0.45 }  }
+	}
+}

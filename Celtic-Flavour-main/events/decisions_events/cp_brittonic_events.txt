@@ -1,0 +1,189 @@
+﻿namespace = cp_brittonic
+
+#############################################
+# #Unification/Reconquest of the Old North  #
+# by Castor (Charles)						#
+#############################################
+
+scripted_trigger controls_lloegyr_region_trigger = {
+	completely_controls_region = lloegyr_region
+	is_landed = yes
+	is_adult = yes
+}
+
+#Prepping for the reconquest
+cp_brittonic.0001 = {
+	type = character_event
+	title = cp_brittonic.0001.t
+	desc = cp_brittonic.0001.desc
+	theme = realm
+	left_portrait = {
+		character = scope:founder
+		animation = personality_honorable
+	}
+
+	immediate = { cp_prepare_ogledd_reconquest_decision_scripted_effect = yes }
+
+	option = {
+		name = cp_brittonic.0001.a
+
+		add_prestige = minor_prestige_gain
+	}
+}
+
+#Unify the region for the first time ever
+cp_brittonic.0002 = {
+	type = character_event
+	title = cp_brittonic.0002.t
+	desc = cp_brittonic.0002.desc
+	theme = realm
+	theme = diplomacy
+	left_portrait = {
+		character = scope:founder
+		animation = personality_honorable
+	}
+
+	immediate = {
+		hidden_effect = {
+			cp_unify_hen_ogledd_decision_scripted_effect = yes
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_hen_ogledd_unified
+		}
+	}
+	
+	option = {
+		name = cp_brittonic.0002.a
+		add_prestige = minor_prestige_gain
+	}
+}
+
+cp_brittonic.0003 = {
+	hidden = yes
+	type = character_event
+   
+	immediate = {
+		# Was a temporary work around solution. Now blank. Put event for deciding CoA here
+	}
+}
+
+cp_brittonic.0004 = {
+	hidden = yes
+	type = character_event
+
+	immediate = {
+		# Was a temporary work around solution. Now blank. Put event related to Hen Ogledd here
+	}
+}
+
+cp_brittonic.0005 = {
+	type = character_event
+	title = cp_brittonic.0005.t
+	desc = cp_brittonic.0005.desc
+	theme = realm
+	left_portrait = {
+		character = scope:founder
+		animation = personality_honorable
+	}
+
+	immediate = { cp_prepare_lloegyr_reconquest_decision_scripted_effect = yes }
+
+	option = {
+		name = cp_brittonic.0005.a
+
+		add_prestige = minor_prestige_gain
+	}
+}
+
+cp_brittonic.0006 = {
+	hidden = yes
+	type = character_event
+
+	immediate = {
+		# Was a temporary work around solution. Now blank. Event for merging Wales and Lloegyr
+	}
+}
+
+cp_brittonic.0007 = {
+	type = character_event
+	title = cp_brittonic.0007.t
+	desc = cp_brittonic.0007.desc
+	theme = realm
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	trigger = {
+		NOT = { # Only happens once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_lloegyr_reconquered
+			}
+		}
+		controls_lloegyr_region_trigger = yes
+	}
+
+	immediate = {
+		hidden_effect = {
+			cp_unify_lloegyr_decision_scripted_effect = yes
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:flag_lloegyr_reconquered
+		}
+		destroy_title = title:k_england
+	}
+
+	#Generic no merge decision
+	option = { #Give an option to embrace the Arthurian legend? New Event
+		name = cp_brittonic.0007.a
+		add_prestige = major_prestige_gain
+	}
+	#Option to merge Wales and Lloegyr. New Event
+}
+
+# FOR REFERENCE
+# cp_brittonic.0002 = {
+# 	type = character_event
+# 	title = cp_brittonic.4001.t
+# 	desc = cp_brittonic.4002.desc
+# 	theme = realm
+# 	theme = diplomacy
+# 	left_portrait = {
+# 		character = scope:founder
+# 		animation = personality_honorable
+# 	}
+
+# 	option = {
+# 		name = { #Brythonic peoples are happy.
+# 			trigger = {
+# 				has_culture_group = culture_group:brythonic_group
+# 				NOT = { has_title = title:k_england }
+# 			}
+# 			text = cp_brittonic.0002.a
+# 		}
+# 		name = { #Anglo-Saxons, the English, & the monarch of England are outraged.
+# 			trigger = {
+# 				OR = {
+# 					has_culture = culture:anglo_saxon
+# 					has_culture = culture:english
+# 					has_title = title:k_england
+# 				}
+# 			}
+# 			text = cp_brittonic.0002.b
+# 		}
+# 		name = { #Noone else especially cares.
+# 			trigger = {
+# 				NOR = {
+# 					has_culture_group = culture_group:brythonic_group
+# 					has_culture = culture:anglo_saxon
+# 					has_culture = culture:english
+# 					has_title = title:k_england
+# 				}
+# 			}
+# 			text = cp_brittonic.0002.c
+# 		}
+# 	}
+# }

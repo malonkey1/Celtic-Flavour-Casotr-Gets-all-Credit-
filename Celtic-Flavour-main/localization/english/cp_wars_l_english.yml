@@ -1,0 +1,8 @@
+﻿l_english:
+ cp_lloegyr_reconquest_minor:0 "Minor Lloegyr [reconquest_war|E]"
+ cp_lloegyr_reconquest:0 "Lloegyr [reconquest_war|E]"
+ cp_ogledd_reconquest_minor:0 "Minor Ogledd [reconquest_war|E]"
+ cp_ogledd_reconquest:0 "Ogledd [reconquest_war|E]"
+ RECONQUEST_WAR_NAME:1 "[reconquest_war|E] for the [TITLE.GetBaseName]"
+ RECONQUEST_WAR_COUNTY_NAME:0 "[reconquest_war|E] for [county|E]"
+ RECONQUEST_WAR_DUCHY_NAME:0 "[reconquest_war|E] for [duchy|E]"

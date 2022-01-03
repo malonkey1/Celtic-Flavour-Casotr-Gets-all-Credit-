@@ -1,0 +1,65 @@
+﻿# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
+# CELTIC FLAVOUR TRAITS
+
+bard = {
+	index = 283
+
+	fame = yes
+	
+	diplomacy = 3
+	stress_gain_mult = 0.1
+	
+	ruler_designer_cost = 40
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_bard_desc
+			}
+			desc = trait_bard_character_desc
+		}
+	}
+
+	ai_boldness = low_positive_ai_value
+	ai_sociability = low_positive_ai_value
+}
+
+hero = {
+	index = 284
+	
+	fame = yes
+	
+	prowess = 3
+	martial = 3
+	health = 0.25
+	monthly_prestige = 0.1
+	
+	ruler_designer_cost = 50
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_hero_desc
+			}
+			desc = trait_hero_character_desc
+		}
+	}
+	
+	ai_boldness = high_positive_ai_value
+	ai_energy = high_positive_ai_value
+	ai_honor = 10
+}

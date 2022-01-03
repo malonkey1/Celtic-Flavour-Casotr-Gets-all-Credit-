@@ -1,0 +1,116 @@
+﻿cp_prepare_ogledd_reconquest_decision_scripted_effect = {
+
+	hidden_effect = {
+		add_character_flag = cp_defender_of_prydain_ogledd
+	}
+	custom_tooltip = cp_prepare_reconquest_of_hen_ogledd_decision_effects_de_jure_tt
+}
+
+cp_unify_hen_ogledd_decision_scripted_effect = {
+	save_scope_as = founder
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = title_change
+		add_claim_on_loss = no
+	}
+	title:k_high_north = {
+		change_title_holder = {
+			holder = root
+			change = scope:title_change
+		}
+	}
+	resolve_title_and_vassal_change = scope:title_change
+
+	hidden_effect = {
+		title:d_galloway = { set_de_jure_liege_title = title:k_high_north }
+		title:d_northumberland = { set_de_jure_liege_title = title:k_high_north }
+		title:d_lothian = { set_de_jure_liege_title = title:k_high_north }
+		title:d_lancaster = { save_scope_as = hen_ogledd_lancaster }
+		title:d_york = { save_scope_as = hen_ogledd_york }
+		if = {	#If owned, annex Rheged
+			limit = {
+				title:d_lancaster = { holder = root }
+			}
+			title:d_lancaster = { set_de_jure_liege_title = title:k_high_north }
+		}
+		if = {	#If owned, annex Gloucestershire/Hwicce.
+			limit = {
+				title:d_york = { holder = root }
+			}
+			title:d_york = { set_de_jure_liege_title = title:k_high_north }
+		}
+		title:k_high_north = { set_de_jure_liege_title = title:e_britannia }
+	}
+	custom_tooltip = cp_reconquer_hen_ogledd_decision_effects_de_jure_tt
+}
+
+#add_character_flag
+cp_prepare_lloegyr_reconquest_decision_scripted_effect = {
+	#save_scope_as = founder
+
+	hidden_effect = {
+		add_character_flag = cp_defender_of_prydain_lloegyr
+	}
+	custom_tooltip = cp_prepare_lloegyr_reconquest_decision_effects_tt
+}
+
+cp_unify_lloegyr_decision_scripted_effect = {
+	#save_scope_as = founder
+
+	save_scope_as = founder
+	create_title_and_vassal_change = {
+		type = created
+		save_scope_as = title_change
+		add_claim_on_loss = no
+	}
+	title:k_logres = {
+		change_title_holder = {
+			holder = root
+			change = scope:title_change
+		}
+	}
+	resolve_title_and_vassal_change = scope:title_change
+
+	hidden_effect = {
+		remove_character_flag = cp_defender_of_prydain_lloegyr
+		title:d_bedford = { set_de_jure_liege_title = title:k_logres }
+		title:d_norfolk = { set_de_jure_liege_title = title:k_logres }
+		title:d_hereford = { set_de_jure_liege_title = title:k_logres }
+		
+		title:d_canterbury = { set_de_jure_liege_title = title:k_logres }
+		
+		if = {
+			limit = { NOT = { title:k_cornwall = { is_de_jure_liege_or_above_target = title:d_somerset } } }
+			title:d_somerset = { set_de_jure_liege_title = title:k_logres }
+		}
+		if = {
+			limit = { NOT = { title:k_cornwall = { is_de_jure_liege_or_above_target = title:d_gloucester } } }
+			title:d_gloucester = { set_de_jure_liege_title = title:k_logres }
+		}
+
+		#CHECK IF CORNWALL EXISTS
+		if = {
+			limit = { NOT = { title:k_cornwall = { is_de_jure_liege_or_above_target = title:d_cornwall } } }
+			title:d_cornwall = { set_de_jure_liege_title = title:k_wales } # k_wales k_logres
+		}
+		#CHECK IF THE HIGH NORTH EXISTS
+		if = {
+			limit = { NOT = { title:k_high_north = { is_de_jure_liege_or_above_target = title:d_york } } }
+			title:d_york = { set_de_jure_liege_title = title:k_wales } # k_wales k_logres
+		}
+		title:c_lincolnshire = { set_de_jure_liege_title = title:d_hereford }
+		if = {
+			limit = { NOT = { title:k_high_north = { is_de_jure_liege_or_above_target = title:d_lancaster } } }
+			title:d_lancaster = { set_de_jure_liege_title = title:k_wales } # k_wales k_logres
+		}
+		if = {
+			limit = { NOT = { title:k_high_north = { is_de_jure_liege_or_above_target = title:d_northumberland } } }
+			title:d_northumberland = { set_de_jure_liege_title = title:k_wales } # k_wales k_logres
+		}
+		
+
+
+		title:k_logres = { set_de_jure_liege_title = title:e_britannia }
+	}
+	custom_tooltip = cp_unify_lloegyr_decision_effects_tt
+}

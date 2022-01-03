@@ -1,0 +1,270 @@
+﻿hende.1 = {
+	name = "Prasutagus" #Prasutagus
+	#dynasty = 105921
+	religion = "pagan"
+	culture = "welsh"
+	trait = education_learning_4
+	trait = just
+	10.1.1={
+		birth=yes
+	}
+	36.1.1={
+		add_spouse=hende.2
+	}
+	60.1.1={
+		death=yes
+	}
+}
+
+hende.2 = {
+	name = "Boudica" #Boudica/Buddug
+	female = yes
+	dynasty = 105921
+	dna = hende_2_boudica
+	religion = "pagan"
+	culture = "welsh"
+	trait = education_martial_2
+	20.1.1 = {
+		birth=yes
+	}
+	61.1.1 = {
+		death=yes
+	}
+}
+
+hende.3 = {
+	name="Isolda" #unnamed daughter
+	female = yes
+	dynasty = 105921
+	religion = "pagan"
+	culture = "welsh"
+	father = hende.1
+	mother = hende.2
+	42.1.1 = {
+		birth=yes
+	}
+	61.1.1 = {
+		death=yes
+	}
+}
+
+hende.4 = {
+	name = "Siora" #unnamed daughter
+	female = yes
+	dynasty = 105921
+	religion = "pagan"
+	culture = "welsh"
+	father = hende.1
+	mother = hende.2
+	44.1.1 = {
+		birth=yes
+	}
+	61.1.1 = {
+		death=yes
+	}
+}
+
+hende.5 = {
+	name = "Cynfelyn" #Cunobeline/Cunobelinos
+	dynasty = 105920
+	religion = "pagan"
+	culture = "welsh"
+	3.1.1 = {
+		birth=yes
+	}
+	41.1.1 = {
+		death=yes
+	}
+}
+
+hende.6 = {
+	name = "Arvirargus" #Adminius
+	dynasty = 105920
+	religion = "pagan"
+	culture = "welsh"
+	father = hende.5
+	3.1.1 = {
+		birth = yes
+	}
+	41.1.1 = {
+		death = yes
+	}
+}
+
+hende.7 = {
+	name = "Sallustius Lucullus" #Sallustius Lucullus
+	dynasty = 105920
+	religion = "hellenic_pagan"
+	culture = "welsh"
+	father = hende.6
+	40.1.1 = {
+		birth = yes
+	}
+	41.1.1 = {
+		culture = roman
+	}
+	97.1.1 = {
+		death = yes
+	}
+}
+
+hende.8 = {
+	name = "Gwydr" #Togodumnus/Guiderius
+	dynasty = 105920
+	religion = "pagan"
+	culture = "welsh"
+	father = hende.5
+	20.1.1 = {
+		birth=yes
+	}
+	43.1.1 = {
+		death=yes
+	}
+}
+
+hende.9 = {
+	name = "Caradog" #Caratacus
+	dynasty = 105920
+	religion = "pagan"
+	culture = "welsh"
+	father = hende.5
+	trait = brave
+	trait = physique_good_3
+	trait = inspiring_leader
+	trait = aggressive_leader
+	21.1.1 = {
+		birth=yes
+		#create_bloodline = {
+		#	type = caratacus
+		#	has_dlc = "Holy Fury"
+		#}
+	}
+	50.1.1 = {
+		death=yes
+	}
+}
+
+hende.10 = {
+	name = "Custennin" # 
+	dynasty = 1029129 #Gwent
+	religion = "catholic"
+	culture = "welsh"
+	father = 159812
+	379.1.1 = {
+		birth=yes
+	}
+	411.8.18 = {
+		death=yes
+	}
+}
+
+hende.11 = {
+	name = "Ieliyn" # 
+	dynasty = 1029129 #Gwent
+	religion = "catholic"
+	culture = "welsh"
+	father = 159812
+	382.1.1 = {
+		birth=yes
+	}
+	418.1.1 = {
+		death=yes
+	}
+}
+
+hende.12 = {
+	name = "Emrys" # Wledig (Elder)
+	dynasty_house = house_british_isles_guenet #Guenet
+	religion = "catholic"
+	culture = "welsh"
+	father = 159812
+	384.1.1 = {
+		birth=yes
+	}
+	446.1.1 = {
+		death=yes
+	}
+}
+
+hende.13 = {
+	name = "Emrys" # Wledig (Younger)
+	dynasty_house = house_british_isles_guenet #Guenet
+	religion = "catholic"
+	culture = "welsh"
+	father = hende.12
+	415.1.1 = {
+		birth=yes
+	}
+	482.1.1 = {
+		death=yes
+	}
+}
+
+hende.14 = {
+	name = "Arthfael" # name unknown
+	dynasty_house = house_british_isles_guenet #Guenet
+	religion = "catholic"
+	culture = "welsh"
+	father = hende.13
+	440.1.1 = {
+		birth=yes
+	}
+	510.1.1 = {
+		death=yes
+	}
+}
+
+hende.15 = {
+	name="Emyr" # name unknown
+	dynasty_house = house_british_isles_guenet #Guenet
+	religion="catholic"
+	culture="welsh"
+	father= hende.14
+	465.1.1={
+		birth=yes
+	}
+	530.1.1={
+		death=yes
+	}
+}
+
+hende.16 = {
+	name="Cynan" # Aurelius Caninus
+	dynasty_house = house_british_isles_guenet #Guenet
+	religion="catholic"
+	culture="welsh"
+	father= hende.15
+	485.1.1={
+		birth=yes
+	}
+	550.1.1={
+		death=yes
+	}
+}
+
+hende.17 = {
+	name="Caradog" # name unknown
+	dynasty_house = house_british_isles_guenet #Guenet
+	religion="catholic"
+	culture="welsh"
+	father= hende.16
+	502.1.1={
+		birth=yes
+	}
+	565.1.1={
+		death=yes
+	}
+}
+
+hende.18 = {  	
+	name = "Gwyrangon" #Gwyrangon/Guoyrancgonus/Corangon
+	dynasty = 105923
+	religion = "catholic"
+	culture = "welsh"
+	398.1.1 = {
+		birth=yes
+	}
+	465.1.1 = {
+		death=yes
+	}
+}

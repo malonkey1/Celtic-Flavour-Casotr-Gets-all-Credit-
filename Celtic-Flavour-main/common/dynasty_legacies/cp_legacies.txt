@@ -1,0 +1,26 @@
+﻿cp_artistic_legacy_track = {
+	is_shown = {
+		dynasty = {
+			OR = {
+				dynast = {
+					culture_group = culture_group:brythonic_group
+				}
+				has_dynasty_perk = cp_artistic_legacy_1
+			}
+		}
+	}
+}
+
+cp_heroism_legacy_track = {
+	is_shown = {
+		has_fp1_dlc_trigger = yes
+		dynasty = {
+			OR = {
+				dynast = {
+					culture_group = culture_group:brythonic_group
+				}
+				has_dynasty_perk = cp_heroism_legacy_1
+			}
+		}
+	}
+}

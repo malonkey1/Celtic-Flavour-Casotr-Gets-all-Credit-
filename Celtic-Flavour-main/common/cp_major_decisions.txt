@@ -1,0 +1,502 @@
+﻿#BRYTHONIC DECISIONS
+
+#############################################
+# #Reform the Round Table			        #
+# by Castor (Charles)						#
+#############################################
+
+#Switches to new Feudal contract type, specialized traits and bonuses for liege and councillors based on role.
+#Councillors are irrevocable for life unless they are found guilty and refuse arrest.
+#Trial for successful arrest, unsuccessful arrest loses their position and they get celtic_excommunication_trait.
+
+#Trial has a variety of outcomes based off of the player's and the accused's traits,
+#along with the severity of the crime (assign value system for crimes?).
+#Insult poetry slam battle: player interaction for trial. (Bollocks. Find a Poet?)
+
+#Upon making the decision five vassal are chosen as councillors based off of base power, 
+#sum of skills, and or traits. Player assigns them to their position.
+
+#Try to make new Round Table window for knights?
+
+cp_form_round_table_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+
+	ai_check_interval = 120
+
+	desc = reclaim_britannia_decision_desc
+
+	is_shown = {
+		OR = {
+			has_culture_group = culture_group:goidelic_group
+			has_culture_group = culture_group:brythonic_group
+		}
+
+		is_landed = yes
+		any_sub_realm_county = {
+			title_province = {  geographical_region = world_europe_west_britannia }
+			NOR = {
+				culture_group = culture_group:goidelic_group
+				culture_group = culture_group:brythonic_group
+			}
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:reclaim_britannia_decision
+			}
+		}
+	}
+
+	is_valid = {
+		completely_controls_region  = world_europe_west_britannia
+
+		# You can have no more than 1 powerful vassal with the "wrong" culture
+		custom_description = {
+			text = reclaim_britannia_custom_decision
+			
+			trigger_if = {
+				limit = {
+					any_vassal = {
+						is_powerful_vassal = yes
+						NOR = {
+							culture_group = culture_group:goidelic_group
+							culture_group = culture_group:brythonic_group
+						}
+					}
+				}
+				any_vassal = {
+					count <= 1
+					is_powerful_vassal = yes
+					NOR = {
+						culture_group = culture_group:goidelic_group
+						culture_group = culture_group:brythonic_group
+					}
+				}
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	effect = {
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:reclaim_britannia_decision
+		}
+		show_as_tooltip = {
+			reclaim_britannia_decision_effect = yes
+		}
+		trigger_event = british_isles.0001
+		# Send event to other players
+		every_player = {
+			limit = {
+				NOT = { this = root }
+				OR = {
+					has_culture_group = culture_group:west_germanic_group
+					has_culture_group = culture_group:goidelic_group
+					has_culture_group = culture_group:brythonic_group
+					has_culture = culture:norman
+				}
+			}
+			trigger_event = british_isles.0002
+		}
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+#############################################
+# #Reconquer Llogeyr						#
+# by Ewan Cowhig Croft						#
+#############################################
+
+#Mimic CK2 Reconquista mechanics? Decision creates unique Casus Belli?
+#Need clarity on what the decision does. Declaration to kick out the Germanics?
+#Culture mechanic, allows other Brythonic and Anglo-Saxon lords to join ala Holy War style.
+
+#Upon completing the decision. Complete decisions? Control all of England?
+#CoA dependant on which Brythonic culture decision maker is. Dynamic CoA?
+#Duchies/Kingdom new localisation, easy, new CoA, also easy.
+#Give nickname 'King of the Britons', dejure claim on Wales if not owned.
+
+##Make a Briton culture? Option to merge Wales and Lloyegr.
+
+#Need to define and clarify
+
+cp_reconquer_llogeyr_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+
+	ai_check_interval = 120
+
+	desc = restore_dumnonia_decision_desc
+	selection_tooltip = restore_dumnonia_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty # Everyone should have a dynasty, but in case they don't...
+		OR = {
+			OR = {
+				has_title = title:d_cornwall
+				has_title = title:c_cornwall
+				has_title = title:c_devon
+			}
+			dynasty = dynasty:1029001	#The Cornish royal house is always able to get away with these shenanigans.
+			culture = culture:cornish	#Cornish characters are always able to dream.
+		}
+		OR = {	#Must be a culture at least traditionally interlinked with Cornwall.
+			dynasty = dynasty:1029001	#The Cornish royal house is at it again.
+			culture_group = culture_group:brythonic_group
+		}
+		NOT = {	#You can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_restored_dumnonia
+			}
+		}
+		OR = {
+			has_government = feudal_government
+			has_government = republic_government
+			has_government = clan_government
+		}
+		highest_held_title_tier <= tier_duchy
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= very_high_prestige_level
+		has_title = title:k_cornwall
+		completely_controls = title:d_cornwall
+		any_realm_province = { #You must have some realm support for your claims.
+			culture_group = culture_group:brythonic_group
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		show_as_tooltip = {
+			restore_dumnonia_decision_scripted_effect = yes
+		}
+		save_scope_as = founder
+		trigger_event = {
+			id = british_isles.4001
+		}
+		#Notify other players.
+		every_player = {
+			limit = {
+				NOT = { this = root }
+				is_within_diplo_range = { CHARACTER = root }
+			}
+			trigger_event = british_isles.4002
+		}
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_restored_dumnonia
+			}
+		}
+	}
+
+	cost = {
+		gold = 300
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+#############################################
+# #Unification/Reconquest of the Old North	#
+# by Castor (Charles)						#
+#############################################
+
+#Unify the duchies of Yr Hen Ogledd into a Kingdom. Pretty similar to the Restore Cornwall decision
+#Need to completely control the duchies of Strathclyde, Gododdin, and Northumbria.
+#Permanently available to Cumbrian characters, available conditionally to other Brythonic cultures.
+#Conditions are: None of the duchies exist, or all 3 controlled by non-Brythonic rulers.
+
+#Upon making the decision new Kingdom with CoA and Name depending on decision maker's religion and
+#which Brythonic culture. Dynamic?
+#Different names for Christian and Celtic Pagans? (Not sure about this one)
+
+cp_reconquer_hen_ogledd_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+
+	ai_check_interval = 120
+
+	desc = cp_reconquer_hen_ogledd_decision_desc
+	selection_tooltip = cp_reconquer_hen_ogledd_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty
+		OR = {
+			OR = {
+				has_title = title:d_galloway
+				has_title = title:d_northumberland
+				has_title = title:d_lothian
+			}
+			dynasty = dynasty:1029002 # Ebrauc
+			culture = culture:cumbrian
+		}
+		# any_held_title = {
+		# 	tier = tier_county
+		# 	title_province = {
+		# 		geographical_region = world_europe_west_britannia_hen_ogledd
+		# 	}
+		# }
+		OR = { #Other Brythonic cultures
+			dynasty = dynasty:1029002 # Ebrauc
+			culture_group = culture_group:brythonic_group
+		}
+		NOT = {	#You can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_hen_ogledd_unified
+			}
+		}
+		OR = {
+			has_government = feudal_government
+			has_government = republic_government
+			has_government = clan_government
+		}
+		highest_held_title_tier <= tier_duchy
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= high_prestige_level
+		OR = {
+			has_title = title:d_galloway
+			has_title = title:d_northumberland
+			has_title = title:d_lothian
+		}
+		#completely_controls_region = world_europe_west_britannia_hen_ogledd
+		completely_controls = title:d_galloway
+		completely_controls = title:d_northumberland
+		completely_controls = title:d_lothian
+		any_realm_province = { #People must be at least partially Brythonic
+			culture_group = culture_group:brythonic_group
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		show_as_tooltip = {
+			cp_reconquer_hen_ogledd_decision_scripted_effect = yes
+		}
+		save_scope_as = founder
+		# trigger_event = {
+		# 	id = british_isles.4001
+		# }
+		# #Notify other players.
+		# every_player = {
+		# 	limit = {
+		# 		NOT = { this = root }
+		# 		is_within_diplo_range = { CHARACTER = root }
+		# 	}
+		# 	#trigger_event = british_isles.4002
+		# }
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_hen_ogledd_unified
+			}
+		}
+	}
+
+	cost = {
+		gold = 300
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+#############################################
+# #Enemy of my Enemy is my 'Friend'			#
+# by Castor (Charles)						#
+#############################################
+
+#Make an agreement to split the land with one of the sons of Ragnar invading England.
+#Need to be a Brythonic duke, at least, and there must be an eligible marriage partner in each immediate family.
+#Description should note that there are some drawbacks.
+
+#Upon making the decision you make an alliance through marriage, gain event troops, convert to Astaru.
+#Starts(/Joins?) a war with (chosen?) Anglo-Saxon enemies. Upon victory (custom conditions?) form 2 new kingdoms.
+#War is treated as Varangian Adventure for Norse ally, player gains hereditary Serpent trait (Consecrated blood mechanics?) with opinion debuff.
+#Basically Vortigern 2.0
+#Player gains 'The Sea Serpent' nickname. Serpent trait (and descendant trait?) can be lost through Reclaim Britannia event. (Redemption!)
+
+cp_enemy_of_my_enemy_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
+	major = yes
+
+	ai_check_interval = 120
+
+	desc = cp_enemy_of_my_enemy_decision_desc
+	selection_tooltip = cp_enemy_of_my_enemy_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty
+
+		#Define more conditions
+		culture_group = culture_group:brythonic_group
+
+		NOT = {	#You can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_enemy_of_my_enemy_decision
+			}
+		}
+		OR = {
+			has_government = feudal_government
+			has_government = republic_government
+			has_government = clan_government
+		}
+		highest_held_title_tier <= tier_duchy
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		#prestige_level >= very_high_prestige_level
+		any_realm_province = {
+			culture_group = culture_group:brythonic_group
+		}
+		has_trait = saint
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		show_as_tooltip = {
+			#restore_dumnonia_decision_scripted_effect = yes
+		}
+		save_scope_as = founder
+		# trigger_event = {
+		# 	id = british_isles.4001
+		# }
+		# #Notify other players.
+		# every_player = {
+		# 	limit = {
+		# 		NOT = { this = root }
+		# 		is_within_diplo_range = { CHARACTER = root }
+		# 	}
+		# 	trigger_event = british_isles.4002
+		# }
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_enemy_of_my_enemy_decision
+			}
+		}
+	}
+
+	cost = {
+		gold = 300
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+#What about the Picts? I reckon they should get an event or two.
+
+#GOIDELIC DECISIONS
+
+#############################################
+# #Host Highland Games						#
+# by Castor (Charles)						#
+#############################################
+
+#Unique tournament where the host is decided by votes from (Goidelic) independant rulers whom are also canidates.
+
+#Upon making the decision the host pays a large sum of money.
+#Recieves large amount of prestige, renown, positive opinion, and potential hooks on guests.
+#Clan (?) tier realms possibly getting new members.
+#Every attendee competes or has a representative competing. Multiple games with rewards for first place.
+#Side events such as affairs, cheating, etc. for games.
+
+#This will be difficult. Need to define and reduce.
+
+#############################################
+# #Border Raid								#
+# by Castor (Charles)						#
+#############################################
+
+#Every 2 years Goidelic characters get a unique raid mechanic with their own events and themes.
+
+#Upon declaring a raid: Character interaction, declare goal ranging from pranks to show of force (only available for rivals?).
+#Outcomes weighted by relative skills and raid goal. Turned based event system to decide degrees of success. Potentially long.
+#Risk of raid escalating or getting out of hand wth consequences to match.
+
+#Need to refine and reduce. Might not be fun.
+
+#############################################
+# #Unify Alba and Eire						#
+# by Castor (Charles)						#
+#############################################
+
+#When Ireland and Scotland are completely ruled by the same dynasty/clan, and they are allied, give option to unify the crowns.
+#Forms one of three empires based off of event chain with Scotland and Ireland as de jure kingdoms.
+
+#Great Clan Meeting event chain to argue for best outcome for yourself in the new arrangement. Three Empires:
+#Ireland wins, Irish Empire (Hibernia), capital moves to Dublin and switch to feudalism.
+#Scotland wins, Scottish Empire (Caledonia), capital moves to Edinburgh and switch to feudalism.
+#No one wins or player's choice, Gaelic Empire, capital moves to the Isle of Mann, unique 2 king system (going to be hard).
+#Empire is split between 2 kings, wars are put to a vote where voters are powerful clan members.
+#Land route from Ulster to Isle of Mann (also doubt this would be possibly. Paradox needs to do this).
+
+#Why Hibernia and Caledonia? Why not a different Gaelic word for each instead of the latin names for them?
+#Option three is very likely not possible, need to compromise (kind of ironic), can't have a non-character hold a title.
+#Maybe make them both emperors and force them to be allies through something like the Alliance from Guardians of Azeroth.
+
+#############################################
+# #Repel the Northmen						#
+# by Castor (Charles)						#
+#############################################
+
+#Becomes avaiable after being raided five times within five years by Norse or being the victims of varangian adventures twice (needs clarification).
+#Get event troops and bonuses against raiders. (Must be Goidelic?)
+
+#Upon decision: If you go 10 years without being successfully raided get 25 year anti-raiding (immunity) buff.
+#Get option to build special building (where? Capital?) 'The Iron Keep' which will debuff raiders in the duchy.

@@ -1,0 +1,50 @@
+﻿k_wales_christian = {
+	pattern = "pattern_cross_01.dds"
+	color1 = "black"
+	color2 = "yellow"
+}
+
+k_wales_pagan = {
+	pattern = "pattern_cross_01.dds"
+	color1 = "white"
+	color2 = "black"
+}
+
+d_lancaster_welsh = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_ordinary_chevron_5.dds"
+		color1 = "black"
+	}
+	colored_emblem = {
+		texture = "ce_falcon.dds"
+		color1 = "black"
+		color2 = "black"
+		instance = { position = { 0.17 0.25 } scale = { 0.45 0.45 }  }
+		instance = { position = { 0.83 0.25 } scale = { 0.45 0.45 }  }
+		instance = { position = { 0.50 0.83 } scale = { 0.45 0.45 }  }
+	}
+}
+
+k_logres = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	colored_emblem = {
+		texture = "ce_wyvern.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+	}
+}
+
+k_high_north = {
+	pattern = "pattern_solid.dds"
+	color1 = "white"
+	color2 = "black"
+	colored_emblem = {
+		texture = "ce_falcon.dds"
+		color1 = "black"
+		color2 = "black"
+	}
+}

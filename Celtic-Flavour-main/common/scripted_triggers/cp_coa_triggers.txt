@@ -1,0 +1,21 @@
+﻿coa_switch_to_dynasty_trigger = {
+	AND = {
+		faith.religion = religion:christianity_religion
+		house = house:house_british_isles_aberffraw
+		has_title = title:k_wales
+	}
+}
+
+coa_switch_to_christian_trigger = {
+	faith.religion = religion:christianity_religion
+	has_title = title:k_wales
+	NOT = { house = house:house_british_isles_aberffraw }
+}
+
+coa_switch_to_pagan_trigger = {
+	NOT = { has_faith = faith:catholic }
+	has_title = title:k_wales
+	#NOT = {
+	#	faith.religion = religion:christianity_religion
+	#}
+} #NOT = { has_faith = faith:catholic }

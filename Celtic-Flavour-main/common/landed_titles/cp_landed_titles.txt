@@ -1,0 +1,39 @@
+﻿@correct_culture_primary_score = 100
+@better_than_the_alternatives_score = 50
+@always_primary_score = 1000
+
+
+
+k_high_north = {
+	color = { 124 59 8 }
+	definite_form = yes
+
+	cultural_names = {
+		welsh = cn_ogledd_uchel # Ogledd Uchel
+		cumbrian = cn_ogledd_uchel # Ogledd Uchel
+		cornish = cn_ogledd_uchel # Ogledd Uchel
+		breton = cn_ogledd_uchel # Ogledd Uchel
+	}
+	capital = c_lennox #Alt Cult
+}
+
+k_logres = { #Lloegyr
+	color = { 212 183 103 }
+	
+	cultural_names = {
+		norman = cn_logris # Logris
+		outremer = cn_logris # Logris
+		french = cn_logris # Logris
+		italian = cn_loegria # Loegria
+		sicilian = cn_loegria # Loegria
+		sardinian = cn_loegria # Loegria
+		lombard = cn_loegria # Loegria
+		cisalpine = cn_loegria # Loegria
+		roman = cn_loegria # Loegria
+		welsh = cn_lloegyr # Lloegyr
+		cumbrian = cn_lloegyr # Lloegyr
+		cornish = cn_lloegyr # Lloegyr
+		breton = cn_lloegyr # Lloegyr
+	}
+	capital = c_essex #Colchester
+}

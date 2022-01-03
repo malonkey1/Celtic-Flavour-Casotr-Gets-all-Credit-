@@ -1,0 +1,19 @@
+﻿l_english:
+
+# Hen Ogledd reconquest 
+ cp_brittonic.0001.t:0 "The Old North"
+ cp_brittonic.0001.desc:0 "Centuries ago the kingdoms of Hen Ogledd fell to eternal forces, now the time has come to take back the lands that rightfully belong to the British!"
+ cp_brittonic.0001.a:0 "Hen Ogledd will be controlled by the Britons once more!"
+
+ cp_brittonic.0002.t:0 "Unification of the North"
+ cp_brittonic.0002.desc:0 "Centuries of invasion and oppression had dwindled the native inhabitants of the North but now the time has come for the realms of old to unite under one banner."
+ cp_brittonic.0002.a:0 "The North stands united!"
+
+# Lloegyr reconquest
+ cp_brittonic.0005.t:0 "The Reconquest of Lloegyr"
+ cp_brittonic.0005.desc:0 "Long ago the brythonic tribes in south east Britain were subjugated then conquered. \n\nThe native people of the area may be gone but their legacy is not. For too long have foreginers controlled their home, you have taken it upon yourself to drive them out."
+ cp_brittonic.0005.a:0 "One day Lloegyr will be ruled by the Britons once more."
+
+ cp_brittonic.0007.t:0 "Lloegyr Unified"
+ cp_brittonic.0007.desc:0 "Lloegyr once more is under control of the Britons! \n\nThe time has come to bring King Arthur's mythical realm to life and form the kingdom of [founder.GetPrimaryTitle.GetNameNoTier]."
+ cp_brittonic.0007.a:0 "The legend of King Arthur is fulfilled!"

@@ -1,0 +1,5 @@
+﻿l_english:
+ game_concept_reconquest_war:0 "Reconquest War"
+ game_concept_reconquest_wars:0 "Reconquest Wars"
+ game_concept_reconquest_war_reconquest:0 "Reconquest"
+ game_concept_reconquest_war_desc:3 "A $game_concept_reconquest_war$ is a special type of [war|E] waged by a [ruler|E] of one [faith|E] against a Ruler of a different Faith.\n\n$game_concept_reconquest_war$ are usually quite destructive, with the winner of a Holy War typically seizing all [counties|E] in the targeted area for themselves. However, if attacker's Faith is [GetFaithDoctrine('doctrine_pluralism_pluralistic').GetBaseName] or the defender has [vassals|E] of the attacker's own Faith in the targeted area, some or all Vassal Rulers in the targeted area may simply be transfered to the attacker instead.\n\nUnlike other wars, Rulers of the same Faith as the target may choose to join in their defense without the need of an [alliance|E].\n\nHoly Wars may be allowed or restricted betwee on different [religious_families|E]"

@@ -1,0 +1,403 @@
+﻿#############################################
+# #Unification/Reconquest of the Old North	#
+# by Castor (Charles)						#
+#############################################
+
+#Unify the duchies of Yr Hen Ogledd into a Kingdom. Pretty similar to the Restore Cornwall decision
+#Need to completely control the duchies of Strathclyde, Gododdin, and Northumbria.
+#Permanently available to Cumbrian characters, available conditionally to other Brythonic cultures.
+#Conditions are: None of the duchies exist, or all 3 controlled by non-Brythonic rulers.
+
+#Upon making the decision new Kingdom with CoA and Name depending on decision maker's religion and
+#which Brythonic culture. Dynamic?
+#Different names for Christian and Celtic Pagans? (Not sure about this one)
+
+cp_prepare_reconquest_of_hen_ogledd_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+
+	ai_check_interval = 120
+
+	desc = cp_prepare_reconquest_of_hen_ogledd_decision_desc
+	selection_tooltip = cp_prepare_reconquest_of_hen_ogledd_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty
+		# OR = {
+			# OR = {
+			# 	has_title = title:d_galloway
+			# 	has_title = title:d_northumberland
+			# 	has_title = title:d_lothian
+			# }
+			# dynasty = dynasty:1029002 # Ebrauc
+			# culture = culture:cumbrian
+		# }
+		OR = { #Always available to Cumbrians. Available to kin as well
+			culture = culture:cumbrian
+			AND = {
+				culture_group = culture_group:brythonic_group
+				dynasty = dynasty:1029002 # Ebrauc
+			}
+		}
+		any_held_title = {
+			tier = tier_county
+			title_province = {
+				geographical_region = hen_ogledd_greater_region
+			}
+		}
+		NOT = {	#You can only do it once.
+			# is_target_in_global_variable_list = {
+			# 	name = unavailable_unique_decisions
+			# 	target = flag:flag_hen_ogledd_unified
+			# }
+			has_character_flag = cp_defender_of_prydain_ogledd
+			has_character_flag = cp_defender_of_prydain_lloegyr
+		}
+		OR = {
+			has_government = feudal_government
+			has_government = republic_government
+			has_government = clan_government
+		}
+		highest_held_title_tier <= tier_duchy
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= high_prestige_level
+		
+		any_held_title = {
+			tier = tier_county
+			title_province = {
+				geographical_region = hen_ogledd_greater_region
+			}
+		}
+
+		any_realm_province = { #You must have some realm support for your claims.
+			culture_group = culture_group:brythonic_group
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		show_as_tooltip = {
+			cp_prepare_ogledd_reconquest_decision_scripted_effect = yes
+		}
+		save_scope_as = founder
+		trigger_event = { #Make an event to piss off every Saxon ruler
+			id = cp_brittonic.0001
+		}
+	}
+
+	cost = {
+		gold = 300
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+cp_unify_hen_ogledd_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+
+	ai_check_interval = 120
+
+	desc = cp_unify_hen_ogledd_decision_desc
+	selection_tooltip = cp_unify_hen_ogledd_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty
+		any_held_title = {
+			tier = tier_county
+			title_province = {
+				geographical_region = hen_ogledd_greater_region
+			}
+		}
+		OR = { #Always available to Cumbrians. Available to kin as well
+			culture = culture:cumbrian
+			AND = {
+				culture_group = culture_group:brythonic_group
+				dynasty = dynasty:1029002 # Ebrauc
+			}
+		}
+		NOT = {	#You can only do it once.
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_hen_ogledd_unified
+			}
+		}
+		has_character_flag = cp_defender_of_prydain_ogledd
+		OR = {
+			has_government = feudal_government
+			has_government = republic_government
+			has_government = clan_government
+		}
+		highest_held_title_tier <= tier_duchy
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= high_prestige_level
+		
+		# any_held_title = {
+		# 	tier = tier_duchy
+		# 	title_province = {
+		# 		geographical_region = hen_ogledd_greater_region
+		# 	}
+		# }
+		
+		completely_controls_region = hen_ogledd_region
+		# completely_controls = title:d_galloway
+		# completely_controls = title:d_northumberland
+		# completely_controls = title:d_lothian
+		any_realm_province = { #People must be at least partially Brythonic
+			culture_group = culture_group:brythonic_group
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		show_as_tooltip = {
+			cp_unify_hen_ogledd_decision_effects_de_jure_tt = yes
+		}
+		save_scope_as = founder
+		trigger_event = {
+			id = cp_brittonic.0002
+		}
+		#Notify other players.
+		# every_player = {
+		# 	limit = {
+		# 		NOT = { this = root }
+		# 		is_within_diplo_range = { CHARACTER = root }
+		# 	}
+		# 	trigger_event = cp_brittonic.0002
+		# }
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_hen_ogledd_unified
+			}
+		}
+	}
+
+	cost = {
+		gold = 300
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+
+
+#############################################
+# #Reconquer Lloegyr						#
+# by Castor (Charles)						#
+#############################################
+
+#Mimic CK2 Reconquista mechanics? Decision creates unique Casus Belli?
+#Need clarity on what the decision does. Declaration to kick out the Germanics?
+#Culture mechanic, allows other Brythonic and Anglo-Saxon lords to join ala Holy War style.
+
+#Upon completing the decision. Complete decisions? Control all of England?
+#CoA dependant on which Brythonic culture decision maker is. Dynamic CoA?
+#Duchies/Kingdom new localisation, easy, new CoA, also easy.
+#Give nickname 'King of the Britons', dejure claim on Wales if not owned.
+
+##Make a Briton culture? Option to merge Wales and Lloegyr.
+
+#Need to define and clarify
+
+cp_prepare_lloegyr_reconquest_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+
+	ai_check_interval = 120
+
+	desc = cp_prepare_lloegyr_reconquest_decision_desc
+	selection_tooltip = cp_prepare_lloegyr_reconquest_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty # Everyone should have a dynasty, but in case they don't...
+		culture_group = culture_group:brythonic_group
+
+		NOT = {	#Can't do it if Lloegyr has already been reconquered
+			OR = {
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:flag_lloegyr_reconquered
+				}
+				has_character_flag = cp_defender_of_prydain_ogledd
+				has_character_flag = cp_defender_of_prydain_lloegyr
+			}
+		}
+		any_held_title = {
+			tier = tier_county
+			title_province = {
+				geographical_region = lloegyr_region
+			}
+		}
+		OR = {
+			has_government = feudal_government
+			has_government = republic_government
+			has_government = clan_government
+		}
+		highest_held_title_tier <= tier_duchy
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= medium_prestige_level
+
+		any_held_title = {
+			tier = tier_county
+			title_province = {
+				geographical_region = lloegyr_region
+			}
+		}
+
+		any_realm_province = { #You must have some realm support for your claims.
+			culture_group = culture_group:brythonic_group
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		show_as_tooltip = {
+			cp_prepare_lloegyr_reconquest_decision_scripted_effect = yes
+		}
+		save_scope_as = founder
+		trigger_event = { #Make an event to piss off every Saxon ruler
+			id = cp_brittonic.0005
+		}
+	}
+
+	cost = {
+		gold = 300
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}
+
+cp_unify_lloegyr_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_destiny_goal.dds"
+	major = yes
+
+	ai_check_interval = 120
+
+	desc = cp_unify_lloegyr_decision_desc
+	selection_tooltip = cp_unify_lloegyr_decision_tooltip
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+		exists = dynasty # Everyone should have a dynasty, but in case they don't...
+		culture_group = culture_group:brythonic_group
+
+		NOT = {	#Can't do it if Lloegyr has already been reconquered
+			OR = {
+				is_target_in_global_variable_list = {
+					name = unavailable_unique_decisions
+					target = flag:flag_lloegyr_reconquered
+				}
+			}
+		}
+		has_character_flag = cp_defender_of_prydain_lloegyr
+
+		OR = {
+			has_government = feudal_government
+			has_government = republic_government
+			has_government = clan_government
+		}
+		highest_held_title_tier <= tier_duchy
+	}
+
+	is_valid = {
+		is_independent_ruler = yes
+		prestige_level >= high_prestige_level
+		
+		# any_held_title = {
+		# 	tier = tier_duchy
+		# 	title_province = {
+		# 		geographical_region = hen_ogledd_greater_region
+		# 	}
+		# }
+		
+		completely_controls_region = lloegyr_region
+
+		any_realm_province = { #People must be at least partially Brythonic
+			culture_group = culture_group:brythonic_group
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+
+	effect = {
+		show_as_tooltip = {
+			cp_unify_lloegyr_scripted_effect = yes
+		}
+		save_scope_as = founder
+		trigger_event = {
+			id = cp_brittonic.0007
+		}
+		#Notify other players.
+		# every_player = {
+		# 	limit = {
+		# 		NOT = { this = root }
+		# 		is_within_diplo_range = { CHARACTER = root }
+		# 	}
+		# 	trigger_event = cp_brittonic.0002
+		# }
+		hidden_effect = {
+			add_to_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:flag_lloegyr_reconquered
+			}
+		}
+	}
+
+	cost = {
+		gold = 300
+	}
+
+	ai_potential = {
+		always = yes
+	}
+
+	ai_will_do = {
+		base = 100
+	}
+}

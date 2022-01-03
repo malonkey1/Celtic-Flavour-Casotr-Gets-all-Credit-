@@ -1,0 +1,14 @@
+﻿105921 = {
+	name = "dynn_Iceni"
+	culture = "welsh"
+}
+
+105922 = {
+	name = "dynn_Brigantes"
+	culture = "welsh"
+}
+
+105923 = {
+	name = "dynn_Ceint"
+	culture = "welsh"
+}

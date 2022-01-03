@@ -1,0 +1,4 @@
+﻿reconquest_war = {
+	alias = { reconquest_wars reconquest_war_reconquest }
+	texture = "gfx/interface/icons/casus_bellis/de_jure_cb.dds"
+}

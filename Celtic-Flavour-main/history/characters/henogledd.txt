@@ -1,0 +1,400 @@
+﻿henogledd.1 = {
+	name = "Garbanion" #Garbanion ap Coel
+	dynasty = 1029002 # Ebrauc
+	martial = 3
+	diplomacy = 4
+	intrigue = 5
+	stewardship = 4
+	religion = "catholic"
+	culture = "cumbrian"
+	trait = education_learning_4
+	trait = just
+	father=159038 # Coel
+	mother=159951 #Ystradwel of Dumnonia
+	392.1.1={
+		birth=yes
+	}
+	450.1.1={
+		death=yes
+	}
+}
+
+henogledd.2 = {
+	name = "Dyfnwal" # Dyfnwal Moelmud
+	dynasty_house = house_british_isles_bryneich
+	martial = 9
+	diplomacy = 2
+	intrigue = 7
+	stewardship = 4
+	religion = "catholic"
+	culture = "cumbrian"
+	trait = education_martial_2
+	father = henogledd.1 #Garbanion
+	410.1.1={
+		birth=yes
+	}
+	475.1.1={
+		death=yes
+	}
+}
+
+henogledd.3 = {
+	name = "Cyngar" # Cuncar/Cyngar ap Dyfnwal
+	dynasty_house = house_british_isles_bryneich
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.2
+	428.1.1 = {
+		birth = yes
+	}
+	490.1.1 = {
+		death = yes
+	}
+}
+
+henogledd.4 = {
+	name = "Bran" # Bran Hen
+	dynasty_house = house_british_isles_bryneich
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.3
+	440.1.1 = {
+		birth=yes
+	}
+	520.1.1 = {
+		give_nickname= nick_the_old
+	}
+	540.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.5 = {
+	name = "Morgan Bulc" # Morgan Bulc
+	dynasty_house = house_british_isles_bryneich
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.4
+	485.1.1 = {
+		birth = yes
+	}
+	560.1.1 = {
+		death = yes
+	}
+}
+
+henogledd.6 = {
+	name = "Mor" # Mor
+	dynasty = 1029002 # Ebrauc
+	religion = "catholic"
+	culture = "cumbrian"
+	father = 159037 # Ceneu
+	408.1.1={
+		birth=yes
+	}
+	470.1.1={
+		death=yes
+	}
+}
+
+henogledd.7 = {
+	name = "Einion" # Einion ap Mor
+	dynasty = 1029002 # Ebrauc
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.6 # Mor
+	432.1.1={
+		birth=yes
+	}
+	505.1.1={
+		death=yes
+	}
+}
+
+henogledd.8 = {
+	name = "Eliffer" # Eliffer Gosgorddfawr
+	dynasty = 1029002 # Ebrauc
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.7 # Einion
+	480.1.1={
+		birth=yes
+	}
+	560.1.1={
+		death=yes
+	}
+}
+
+#Guendoleu
+henogledd.9 = {
+	name="Ceidio" # Ceidio ap Einion
+	dynasty = 1029002 # Ebrauc
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.7 # Einion
+	485.1.1={
+		birth=yes
+	}
+	555.1.1={
+		death=yes
+	}
+}
+
+henogledd.10 = {
+	name="Guenddolau" # Guenddolau/Gwenddolew ap Ceidio
+	dynasty = 1029002 # Ebrauc, supposed to be Guendolau
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.9 # Ceidio
+	504.1.1={
+		birth=yes
+	}
+	573.1.1={
+		death=yes
+	}
+}
+
+henogledd.11 = {
+	name = "Peredyr" # Peredyr Arueu Dur
+	dynasty = 1029002 #Ebrauc
+	religion = "catholic"
+	culture = "welsh"
+	father = henogledd.8 # Eliffer Gosgorddfawr
+	510.1.1={
+		birth=yes
+	}
+	580.1.1={
+		death=yes
+	}
+}
+
+henogledd.12 = {
+	name = "Gwrgi" # Gwrgi ap Eliffer
+	dynasty = 1029002 #Ebrauc
+	religion = "catholic"
+	culture = "welsh"
+	father = henogledd.8 # Eliffer Gosgorddfawr
+	512.1.1 = {
+		birth=yes
+	}
+	580.6.1 = {
+		death=yes
+	}
+}
+
+henogledd.13 = {
+	name = "Gwrgant" # Gwrgant Gwron
+	dynasty = 1029002 #Ebrauc
+	religion = "catholic"
+	culture = "welsh"
+	father = henogledd.11 # Peredyr Arueu Dur
+	540.1.1 = {
+		birth=yes
+	}
+	592.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.14 = {
+	name = "Arthwys" # Arthuis/Arthwys ap Mor
+	dynasty = 1029002 #Ebrauc
+	religion = "catholic"
+	culture = "welsh"
+	father = henogledd.6 # Mor
+	434.1.1={
+		birth=yes
+	}
+	480.1.1={
+		death=yes
+	}
+}
+
+henogledd.15 = {
+	name="Cynfelyn" # Cynfelyn ap Arthwys
+	dynasty = 1029002 #Ebrauc
+	religion = "catholic"
+	culture = "welsh"
+	father = henogledd.14 # Arthwys
+	452.1.1={
+		birth=yes
+	}
+	510.1.1={
+		death=yes
+	}
+}
+
+henogledd.16 = {
+	name = "Pabo" # Pabo Post Prydein
+	dynasty = 1029002 #Ebrauc
+	religion = "catholic"
+	culture = "welsh"
+	father = henogledd.14 # Arthwys ap Mor
+	466.1.1 = {
+		birth=yes
+	}
+	530.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.17 = {
+	name = "Pebiau" # name unknown
+	dynasty = 1029002 #Ebrauc
+	religion = "catholic"
+	culture = "welsh"
+	father = henogledd.14 # Arthwys ap Mor
+	475.1.1 = {
+		birth=yes
+	}
+	545.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.18 = {  	
+	name = "Cynfarch" #
+	dynasty = 1029039
+	religion = "catholic"
+	culture = "cumbrian"
+	father = 159009
+	355.1.1 = {
+		birth=yes
+	}
+	418.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.19 = {  	
+	name = "Llewdwn" #
+	dynasty = 1029039
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.18
+	410.1.1 = {
+		birth=yes
+	}
+	490.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.20 = {  	
+	name = "Gwalchmai" #
+	dynasty = 1029039
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.19
+	470.1.1 = {
+		birth=yes
+	}
+	537.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.21 = {
+	name = "Coledauc" # Coledauc/Clydog
+	dynasty_house = house_british_isles_bryneich
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.5
+	518.1.1 = {
+		birth=yes
+	}
+	580.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.22 = {
+	name = "Cynan" # Cynan
+	dynasty_house = house_british_isles_bryneich
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.5
+	522.1.1 = {
+		birth=yes
+	}
+	597.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.23 = {
+	name = "Morcant" # Morcant
+	dynasty_house = house_british_isles_bryneich
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.21
+	540.1.1 = {
+		birth=yes
+	}
+	597.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.24 = {
+	name = "Mynyddog Mwynfawr" # Mynyddog Mwynfawr
+	dynasty_house = house_british_isles_bryneich
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.22
+	550.1.1 = {
+		birth=yes
+	}
+	597.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.25 = {
+	name = "Teneu" # mother of St. Mungo/Kentigern
+	female=yes
+	dynasty_house = house_british_isles_bryneich
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.5
+	520.1.1 = {
+		birth=yes
+	}
+	536.1.1 = {
+		effect = { add_lover = 159958 }
+	}
+	570.1.1 = {
+		death=yes
+	}
+}
+
+henogledd.26 = {
+	name = "Mungo" # St. Mungo/Kentigern
+	dynasty_house = house_british_isles_rheged #Rheged
+	religion = "catholic"
+	culture = "cumbrian"
+	father = 159958 # Owain
+	mother = henogledd.25 # Teneu
+	trait = bastard
+	trait = saint
+	540.1.1 = {
+		birth = yes
+	}
+	614.1.13 = {
+		death = yes
+	}
+}
+
+henogledd.27 = {
+	name = "Gwawrddur" # Gwawrddur
+	dynasty_house = house_british_isles_bryneich
+	religion = "catholic"
+	culture = "cumbrian"
+	father = henogledd.24
+	568.1.1 = {
+		birth = yes
+	}
+	638.1.1 = {
+		death = yes
+	}
+}

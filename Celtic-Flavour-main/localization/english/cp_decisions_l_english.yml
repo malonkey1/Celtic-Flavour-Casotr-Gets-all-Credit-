@@ -1,0 +1,24 @@
+﻿l_english:
+ cp_prepare_reconquest_of_hen_ogledd_decision:0 "The Old North"
+ cp_prepare_reconquest_of_hen_ogledd_decision_desc:0 "The kingdoms of the Hen Ogledd fell to Anglo-Saxon and Pictish raiders, long have the Brittonic people dreamed to reunite Yr Hen Ogledd."
+ cp_prepare_reconquest_of_hen_ogledd_decision_tooltip:0 "Gain a unique [casus_belli|E] to reconquer the realms of Hen Ogledd."
+ cp_prepare_reconquest_of_hen_ogledd_decision_effects_de_jure_tt:0 "Get the [reconquest_war|E] casus belli for [GetGeographicalRegion('hen_ogledd_region').GetName]."
+ cp_prepare_reconquest_of_hen_ogledd_decision_confirm:0 "Ar gyfer y Gogledd!"
+ 
+ cp_unify_hen_ogledd_decision:0 "Unify the Realms of the Old North"
+ cp_unify_hen_ogledd_decision_desc:0 "The kingdoms of Hen Ogledd fell because they were divided. The time has come to bring them under one banner as one realm."
+ cp_unify_hen_ogledd_decision_tooltip:0 "Hen Ogledd becomes a [de_jure|E] [kingdom|E]."
+ cp_unify_hen_ogledd_decision_effects_de_jure_tt:0 "If owned, the [duchies|E] of [hen_ogledd_lancaster.GetNameNoTier] and [hen_ogledd_york.GetNameNoTier] will each become [de_jure|E] Hen Ogledd."
+ cp_unify_hen_ogledd_decision_confirm:0 "Ar gyfer y Gogledd!"
+ 
+ cp_prepare_lloegyr_reconquest_decision:0 "Start Reconquest of Lloegyr"
+ cp_prepare_lloegyr_reconquest_decision_desc:0 "Lloegyr was the name the Britons used for the region bordering the Humber and Severn estuaries, and the Kingdom of Dumnonia. The tribes in the area were some of the firs to be taken over by the Romans and then the Saxons. Reclaim the area for the Britons!"
+ cp_prepare_lloegyr_reconquest_decision_tooltip:0 "Gain a unique [casus_belli|E] to drive out the invaders."
+ cp_prepare_lloegyr_reconquest_decision_effects_tt:0 "Get the [reconquest_war|E] casus belli for [GetGeographicalRegion('lloegyr_region').GetName]."
+ cp_prepare_lloegyr_reconquest_decision_confirm:0 "Confirm"
+ 
+ cp_unify_lloegyr_decision:0 "Unify the realm of Lloegyr"
+ cp_unify_lloegyr_decision_desc:0 "Lloegyr was the supposed realm of King Arthur in some stories. King Arthur was supposed to drive out the Anglo-Saxon invaders and return the area to the Britons. Embrace the legend and destroy the Kingdom of the Anglo-Saxons."
+ cp_unify_lloegyr_decision_tooltip:0 "Lloegyr becomes a [de_jure|E] [kingdom|E]."
+ cp_unify_lloegyr_decision_effects_tt:0 "The [kingdom|E] of England is destoryed its old lands becoming part of Wales or any other Brythonic kingdom that exists."
+ cp_unify_lloegyr_decision_confirm:0 "Confirm"
