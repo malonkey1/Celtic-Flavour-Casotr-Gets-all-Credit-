@@ -1,0 +1,23 @@
+﻿ballad_poem_romance_opinion = {
+	opinion = 30
+	monthly_change = 0.2
+	decaying = yes
+}
+
+ballad_poem_mourning_opinion = {
+	opinion = 30
+	monthly_change = 0.2
+	decaying = yes
+}
+
+ballad_poem_grateful_opinion = {
+	opinion = 30
+	monthly_change = 0.2
+	decaying = yes
+}
+
+ballad_poem_humiliated_opinion = {
+	opinion = -60
+	monthly_change = 0.2
+	decaying = yes
+}

@@ -1,0 +1,6 @@
+﻿enmity_perk_modifier = {
+	icon = martial_positive
+
+	martial = 5
+	prowess = 5
+}

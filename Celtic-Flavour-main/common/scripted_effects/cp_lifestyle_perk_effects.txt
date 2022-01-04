@@ -1,0 +1,112 @@
+﻿# canny_hero_skill_gain_roll_effect: rolls for whether the character should gain bonus Learning or Martial after winning a duel.
+# modified from the dark insights effect
+
+canny_hero_skill_gain_roll_effect = {
+	#Backup check in case something has gone wrong
+	if = {
+		limit = {
+			has_perk = cp_canny_hero_perk
+		}
+
+		# Backup for the variables
+		if = {
+			limit = {
+				NOT = { has_variable = canny_hero_learning_increases }
+			}
+			set_variable = {
+				name = canny_hero_learning_increases
+				value = 0
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_variable = canny_hero_martial_increases }
+			}
+			set_variable = {
+				name = canny_hero_martial_increases
+				value = 0
+			}
+		}
+		
+		# Roll to see if we get a skill increase.
+		if = {
+			# For tooltip generation, we need to check if we have the variable yet (the backups above won't create the variables until after the effect is actually run).
+			limit = {
+				NOR = {
+					has_variable = canny_hero_learning_increases
+					has_variable = canny_hero_martial_increases
+				}
+			}
+			custom_tooltip = dark_insight_gain_stats_tt
+		}
+		else_if = {
+			limit = {
+				
+				OR = {
+					var:canny_hero_learning_increases < 5
+					var:canny_hero_martial_increases < 5
+				}
+			}
+
+			custom_tooltip = dark_insight_gain_stats_tt
+
+			hidden_effect = {
+				random = {
+					chance = dark_insights_stat_increase_chance
+					scope:actor = {
+						
+					}
+					random_list = {
+						50 = {
+							trigger = {
+								var:canny_hero_learning_increases < 5
+							}
+
+							send_interface_toast = {
+								title = dark_insights_gain_message
+								left_icon = scope:actor
+								right_icon = scope:recipient
+
+								add_character_modifier = {
+									modifier = canny_hero_learning_modifier
+								}
+							}
+
+							change_variable = {
+								name = canny_hero_learning_increases
+								add = 1d
+							}
+						}
+						50 = {
+							trigger = {
+								var:canny_hero_martial_increases < 5
+							}
+
+							send_interface_toast = {
+								title = dark_insights_gain_message
+								left_icon = scope:actor
+								right_icon = scope:recipient
+
+								add_character_modifier = {
+									modifier = canny_hero_martial_modifier
+								}
+							}
+
+							change_variable = {
+								name = canny_hero_martial_increases
+								add = 1
+							}
+						}
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				var:canny_hero_learning_increases >= 5
+				var:canny_hero_martial_increases >= 5
+			}
+			custom_tooltip = dark_insights_maximum_insight_tt
+		}
+	}
+}

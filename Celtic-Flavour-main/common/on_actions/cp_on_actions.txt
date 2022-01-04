@@ -1,0 +1,69 @@
+﻿on_war_started = {
+	effect = {
+		scope:war = {
+			every_war_participant = {
+				trigger_event = cp_interaction.0002
+			}
+		}
+	}
+}
+
+on_join_war_as_secondary = {
+	effect = {
+		scope:war = {
+			every_war_participant = {
+				trigger_event = cp_interaction.0002
+			}
+		}
+	}
+}
+
+on_war_transferred = {
+	effect = {
+		scope:war = {
+			every_war_participant = {
+				trigger_event = cp_interaction.0002
+			}
+		}
+	}
+}
+
+on_war_won_attacker = {
+	effect = {
+		scope:war = {
+			every_war_participant = {
+				trigger_event = cp_interaction.0003
+			}
+		}
+	}
+}
+
+on_war_won_defender = {
+	effect = {
+		scope:war = {
+			every_war_participant = {
+				trigger_event = cp_interaction.0003
+			}
+		}
+	}
+}
+
+on_war_white_peace = {
+	effect = {
+		scope:war = {
+			every_war_participant = {
+				trigger_event = cp_interaction.0003
+			}
+		}
+	}
+}
+
+on_war_invalidated = {
+	effect = {
+		scope:war = {
+			every_war_participant = {
+				trigger_event = cp_interaction.0003
+			}
+		}
+	}
+}

@@ -1,0 +1,107 @@
+﻿cp_performance_focus = {
+	lifestyle = cp_cultural_lifestyle
+
+	desc = {
+		desc = cp_cultural_performance_focus_desc
+		desc = line_break
+	}
+
+	modifier = {
+		diplomacy = 2
+		general_opinion = 5
+	}
+
+	auto_selection_weight = {
+		value = 16
+		if = {
+			limit = {
+				culture_group = culture_group:brythonic_group
+				culture_group = culture_group:goidelic_group
+			}
+			add = 1985
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = gregarious
+					has_trait = poet
+				}
+			}
+			multiply = 5
+		}
+		if = {
+			limit = {
+				has_trait = shy
+			}
+			multiply = 0
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		OR = {
+			culture_group = culture_group:brythonic_group
+			culture_group = culture_group:goidelic_group
+			capital_county = {
+				culture_group = culture_group:brythonic_group
+				culture_group = culture_group:goidelic_group
+			}
+		}
+	}
+
+	focus_id = 1000
+}
+
+cp_heroism_focus = {
+	lifestyle = cp_cultural_lifestyle
+
+	desc = {
+		desc = celtic_heroism_focus_desc
+		desc = line_break
+	}
+
+	modifier = {
+		diplomacy = 2
+		general_opinion = 5
+	}
+
+	auto_selection_weight = {
+		value = 16
+		if = {
+			limit = {
+				culture_group = culture_group:brythonic_group
+				culture_group = culture_group:goidelic_group
+			}
+			add = 1985
+		}
+		if = {
+			limit = {
+				OR = {
+					has_trait = brave
+					has_trait = adventurer
+					has_trait = peasant_leader
+					has_trait = berserker
+				}
+			}
+			multiply = 5
+		}
+		if = {
+			limit = {
+				has_trait = shy
+			}
+			multiply = 0
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		OR = {
+			culture_group = culture_group:brythonic_group
+			culture_group = culture_group:goidelic_group
+			capital_county = {
+				culture_group = culture_group:brythonic_group
+				culture_group = culture_group:goidelic_group
+			}
+		}
+	}
+
+	focus_id = 1001
+}

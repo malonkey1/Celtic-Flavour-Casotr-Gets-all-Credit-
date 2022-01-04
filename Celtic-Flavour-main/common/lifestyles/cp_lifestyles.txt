@@ -1,0 +1,22 @@
+﻿cp_cultural_lifestyle = {
+	is_highlighted = {
+		OR = {
+			has_culture_group = culture_group:brythonic_group
+			has_culture_group = culture_group:goidelic_group
+		}
+
+		is_valid_showing_failures_only = {
+			OR = {
+				has_culture_group = culture_group:brythonic_group
+				has_culture_group = culture_group:goidelic_group
+				capital_county = {
+					has_culture_group = culture_group:brythonic_group
+					has_culture_group = culture_group:goidelic_group
+				}
+			}
+		}
+	}
+
+	xp_per_level = 1000
+	base_xp_gain = 25
+}
